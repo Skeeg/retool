@@ -5,6 +5,7 @@ import datetime
 import html
 import pathlib
 import re
+import json
 
 from typing import TYPE_CHECKING
 from urllib.parse import quote
@@ -155,6 +156,13 @@ class WriteFiles(object):
                 if title.full_name not in dupe_check:
                     dupe_check.add(title.full_name)
                     final_titles.add(title)
+        
+        if config.user_input.create_symlink_data:
+            output_json_array = []
+            for title in final_titles:
+                output_json_entry = {title.short_name_original: title.roms}
+                output_json_array.append(output_json_entry)
+            output_json_str = json.dumps(output_json_array, indent=2)
 
         dupe_check.clear()
 
@@ -284,7 +292,7 @@ class WriteFiles(object):
         dtd_line: str = ''
 
         if input_dat.is_dtd:
-            dtd_line = '<!DOCTYPE datafile PUBLIC "-//Logiqx//DTD ROM Management Datafile//EN" "https://raw.githubusercontent.com/unexpectedpanda/retool-clonelists-metadata/main/datafile.dtd">'
+            dtd_line = '<!DOCTYPE datafile PUBLIC "-//Logiqx//DTD ROM Management Datafile//EN" "https://raw.githubusercontent.com/Skeeg/retool-metadata/main/datafile.dtd">'
 
         final_xml.append('<?xml version="1.0"?>\n')
 
@@ -384,6 +392,9 @@ class WriteFiles(object):
             else:
                 with open(pathlib.Path(input_dat.output_filename), 'w', encoding='utf-8') as output_file:
                     output_file.writelines(final_xml)
+                if config.user_input.create_symlink_data:
+                    with open(pathlib.Path(input_dat.output_filename + '.symlinkdata.json'), 'w', encoding='utf-8') as output_file2:
+                        output_file2.writelines(output_json_str)
         except OSError as e:
             eprint(f'\n{Font.error_bold}* Error: {Font.end}{str(e)}\n')
             raise

@@ -51,6 +51,7 @@ class UserInput:
                  user_config: str = '',
                  metadata: str = '',
                  no_overrides: bool = False,
+                 create_symlink_data: bool = False,
                  list_names: bool = False,
                  log: bool = False,
                  original_header: bool = False,
@@ -255,6 +256,7 @@ class UserInput:
         self.no_overrides: bool = no_overrides
 
         # Outputs
+        self.create_symlink_data: bool = create_symlink_data
         self.list_names: bool = list_names
         self.log: bool = log
         self.original_header: bool = original_header
@@ -365,6 +367,10 @@ def check_input() -> UserInput:
     parser.add_argument('--test',
                         action='store_true',
                         help=argparse.SUPPRESS)
+    
+    debug.add_argument('--createsymlinkdata',
+                        action='store_true',
+                        help='R|Create symlink data.')
 
     outputs.add_argument('--listnames',
                         action='store_true',
@@ -576,6 +582,7 @@ def check_input() -> UserInput:
         'Input',
         'output',
         'clonelist',
+        'createsymlinks',
         'config',
         'exclude',
         'q',
@@ -661,6 +668,7 @@ def check_input() -> UserInput:
             user_config = args.config,
             metadata = str(pathlib.Path(args.metadata).resolve()),
             no_overrides = args.nooverrides,
+            create_symlink_data = args.createsymlinkdata,
             list_names = args.listnames,
             log = args.log,
             original_header = args.originalheader,
@@ -1143,6 +1151,7 @@ def import_system_settings(
             config.user_input.empty_titles = False
             config.user_input.legacy = False
             config.user_input.list_names = False
+            config.user_input.create_symlink_data = False
             config.user_input.log = False
             config.user_input.original_header = False
             config.user_input.modern = False
@@ -1161,6 +1170,8 @@ def import_system_settings(
 
             option: str
             for option in config.system_exclusions_options:
+                if option == 'createsymlinkdata':
+                    config.user_input.create_symlink_data = True
                 if option == 'd':
                     config.user_input.no_1g1r = True
                     options.append('d')

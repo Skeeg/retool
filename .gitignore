@@ -11,6 +11,12 @@ debug.log
 *.spec
 *.xlsx
 
+# Data originating from metadata repository
+/clonelists/*
+/metadata/*
+internal-config.json 
+datafile.dtd
+
 # dependencies
 /node_modules
 /.pnp

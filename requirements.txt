@@ -1,0 +1,15 @@
+# requirements.txt
+
+about-time==4.2.1
+alive-progress==3.1.4
+grapheme==0.6.0
+lxml==4.9.3
+psutil==5.9.6
+PySide6==6.6.0
+PySide6-Addons==6.6.0
+PySide6-Essentials==6.6.0
+python-dateutil==2.8.2
+shiboken6==6.6.0
+six==1.16.0
+strictyaml==1.7.3
+validators==0.22.0
