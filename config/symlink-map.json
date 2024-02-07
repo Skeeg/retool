@@ -1,0 +1,75 @@
+{
+  "Systems": {
+    "NES": {
+      "datfile": "Nintendo - Nintendo Entertainment System (Headered)",
+      "datsource": "no-intro",
+      "extension": "zip",
+      "in_folder": "False",
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "tools/downloaded_media/nes",
+          "roms_path": "roms/nes"
+        },
+        "OnionOS": {
+          "media_path": "roms/fc",
+          "roms_path": "roms/fc"
+        }
+      },
+      "screenscraper_folder": "NES"
+    },
+    "Playstation": {
+      "datfile": "Sony - PlayStation - Datfile",
+      "datsource": "redump",
+      "extension": "chd",
+      "in_folder": "True",
+      "frontends": {
+        "EmulationStation": {
+          "roms_path": "roms/psx",
+          "media_path": "tools/downloaded_media/psx"
+        },
+        "OnionOS": {
+          "media_path": "roms/psx",
+          "roms_path": "roms/psx"
+        }
+      },
+      "screenscraper_folder": "Playstation"
+    },
+    "Playstation2": {
+      "datfile": "Sony - PlayStation 2 - Datfile",
+      "datsource": "redump",
+      "extension": "chd",
+      "in_folder": "True",
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "tools/downloaded_media/ps2",
+          "roms_path": "roms/ps2"
+        }
+      },
+      "screenscraper_folder": "Playstation 2"
+    }
+  },
+  "frontend_reference": {
+    "FriendlyFrontEndName": {
+      "screenscraper_folder": "frontend_expected_folder_in_media_path",
+      "link": "link_destination"
+    }
+  },
+  "frontends": {
+    "EmulationStation": {
+      "3dboxes": "box3d",
+      "backcovers": "box2dback",
+      "covers": "box2dfront",
+      "fanart": "fanart",
+      "manuals": "manual",
+      "marquees": "screenmarquee",
+      "miximages": "recalbox_mix",
+      "physicalmedia": "support",
+      "screenshots": "screenshot",
+      "titlescreens": "screenshottitle",
+      "videos": "videos"
+    },
+    "OnionOS": {
+      "img": "miyoo-garlic"
+    }
+  }
+}

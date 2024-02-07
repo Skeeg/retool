@@ -9,7 +9,7 @@ def create_symlink(main_entry_name, game_info):
     os.symlink(symlinkName, symlinkTarget)
     print(f"Created symlink: {symlinkName} to {symlinkTarget}")
 
-def process_json(json_data):
+def process_link(json_data):
     for game_entry in json_data:
         main_entry_name = list(game_entry.keys())[0]
         game_info_list = game_entry[main_entry_name]
@@ -24,8 +24,23 @@ def process_json(json_data):
 
 if __name__ == "__main__":
     # Load JSON data from a file
-    input_file_path = os.environ.get('INPUT_FILE')
-    with open(input_file_path, 'r') as json_file:
-        json_data = json.load(json_file)
+    map_file = os.environ.get('MAP_FILE')
+    output_directory = os.environ.get('OUTPUT_DIR')
+    rom_relative_path = os.environ.get('ROM_RELATIVE_PATH')
+    media_relative_path = os.environ.get('MEDIA_RELATIVE_PATH')
+    with open(map_file, 'r') as json_file:
+        map_data = json.load(json_file)
 
-    process_json(json_data)
+    #Need to build the map json file
+    # Things to do:
+        # point to the 1g1r json outputs
+        # supply the roms path (no-intro/redump)
+        # supply the unique media path name
+        # supply the frontend file structure
+            # emudeck = roms/NES & ../downloaded_media/NES for media
+            # onionOS = roms/FC & roms/FC/img for media
+            # etc.
+        # supply the media file structure
+    print(f"Map File: {map_file}")
+
+    # process_link(json_data)
