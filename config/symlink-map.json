@@ -3,49 +3,55 @@
     "NES": {
       "datfile": "Nintendo - Nintendo Entertainment System (Headered)",
       "datsource": "no-intro",
-      "extension": "zip",
       "in_folder": "False",
+      "ignore_extensions": [],
       "frontends": {
         "EmulationStation": {
-          "media_path": "tools/downloaded_media/nes",
-          "roms_path": "roms/nes"
+          "media_path": "/tools/downloaded_media/nes/",
+          "roms_path": "/roms/nes/"
         },
         "OnionOS": {
-          "media_path": "roms/fc",
-          "roms_path": "roms/fc"
+          "media_path": "/roms/fc/",
+          "roms_path": "/roms/fc/"
         }
       },
-      "screenscraper_folder": "NES"
+      "linked_extension": ".zip",
+      "screenscraper_folder": "NES",
+      "use_rom_file_name": "True"
     },
     "Playstation": {
-      "datfile": "Sony - PlayStation - Datfile",
+      "datfile": "Sony - PlayStation",
       "datsource": "redump",
-      "extension": "chd",
+      "ignore_extensions": [".cue", ".m3u"],
       "in_folder": "True",
       "frontends": {
         "EmulationStation": {
-          "roms_path": "roms/psx",
-          "media_path": "tools/downloaded_media/psx"
+          "roms_path": "/roms/psx/",
+          "media_path": "/tools/downloaded_media/psx/"
         },
         "OnionOS": {
-          "media_path": "roms/psx",
-          "roms_path": "roms/psx"
+          "media_path": "/roms/psx/",
+          "roms_path": "/roms/psx/"
         }
       },
-      "screenscraper_folder": "Playstation"
+      "linked_extension": ".chd",
+      "screenscraper_folder": "Playstation",
+      "use_rom_file_name": "True"
     },
     "Playstation2": {
-      "datfile": "Sony - PlayStation 2 - Datfile",
+      "datfile": "Sony - PlayStation 2",
       "datsource": "redump",
-      "extension": "chd",
+      "ignore_extensions": [".cue", ".m3u"],
       "in_folder": "True",
       "frontends": {
         "EmulationStation": {
-          "media_path": "tools/downloaded_media/ps2",
-          "roms_path": "roms/ps2"
+          "media_path": "/tools/downloaded_media/ps2/",
+          "roms_path": "/roms/ps2/"
         }
       },
-      "screenscraper_folder": "Playstation 2"
+      "linked_extension": ".chd",
+      "screenscraper_folder": "Playstation 2",
+      "use_rom_file_name": "True"
     }
   },
   "frontend_reference": {
