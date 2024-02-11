@@ -348,6 +348,74 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "Neo Geo Pocket"
+    },
+    "Commodore Amiga" : {
+      "datfile": "Commodore - Amiga",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/amiga/",
+          "roms_path": "/roms/amiga/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/AMIGA/",
+          "roms_path": "/roms/AMIGA/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Amiga"
+    },
+    "Commodore VIC-20" : {
+      "datfile": "Commodore - VIC-20",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/vic20/",
+          "roms_path": "/roms/vic20/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/VIC20/",
+          "roms_path": "/roms/VIC20/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "VIC-20"
+    },
+    "Commodore 64" : {
+      "datfile": "Commodore - 64",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/c64/",
+          "roms_path": "/roms/c64/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/COMMODORE/",
+          "roms_path": "/roms/COMMODORE/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Commodore 64"
+    },
+    "Commodore 64 Tapes" : {
+      "datfile": "Commodore - 64 (Tapes)",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/c64/tapes/",
+          "roms_path": "/roms/c64/tapes/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Commodore 64"
     }
   }
 }
