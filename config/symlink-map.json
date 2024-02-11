@@ -418,7 +418,7 @@
       "screenscraper_folder": "Commodore 64"
     },
     "NEC - PC Engine" : {
-      "datfile": "NEC - PC Engine - TurboGrafx 16",
+      "datfile": "NEC - PC Engine - TurboGrafx-16",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -454,7 +454,7 @@
       "screenscraper_folder": "PC-88"
     },
     "NEC - PC-98" : {
-      "datfile": "NEC - PC-98",
+      "datfile": "NEC - PC-98 series",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
