@@ -556,6 +556,24 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "ColecoVision"
+    },
+    "Nintendo - Family Computer Disk System" : {
+      "datfile": "Nintendo - Family Computer Disk System (FDS)",
+      "datsource": "no-intro",
+      "in_folder": "True",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/famicom/",
+          "roms_path": "/roms/famicom/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/FDS/",
+          "roms_path": "/roms/FDS/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Famicom Disk System"
     }
   }
 }
