@@ -520,6 +520,24 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "MS-DOS"
+    },
+    "Nintendo - Virtual Boy" : {
+      "datfile": "Nintendo - Virtual Boy",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/virtualboy/",
+          "roms_path": "/roms/virtualboy/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/VB/",
+          "roms_path": "/roms/VB/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Virtual Boy"
     }
   }
 }
