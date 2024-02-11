@@ -258,6 +258,42 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "Atari Lynx"
+    },
+    "Wonderswan Color" : {
+      "datfile": "Bandai - WonderSwan (Color)",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/wonderswancolor/",
+          "roms_path": "/roms/wonderswancolor/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/WS/",
+          "roms_path": "/roms/WS/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "WonderSwan Color"
+    },
+    "Wonderswan" : {
+      "datfile": "Bandai - WonderSwan",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/wonderswan/",
+          "roms_path": "/roms/wonderswan/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/WS/",
+          "roms_path": "/roms/WS/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "WonderSwan"
     }
   }
 }
