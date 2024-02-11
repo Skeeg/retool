@@ -1,74 +1,4 @@
 {
-  "Systems": {
-    "SNES": {
-      "datfile": "Nintendo - Super Nintendo Entertainment System",
-      "datsource": "no-intro",
-      "in_folder": "False",
-      "ignore_extensions": [],
-      "frontends": {
-        "EmulationStation": {
-          "media_path": "/tools/downloaded_media/snes/",
-          "roms_path": "/roms/snes/"
-        },
-        "OnionOS": {
-          "media_path": "/roms/sfc/",
-          "roms_path": "/roms/sfc/"
-        }
-      },
-      "linked_extension": ".zip",
-      "screenscraper_folder": "Super Nintendo"
-    },
-    "NES": {
-      "datfile": "Nintendo - Nintendo Entertainment System (Headered)",
-      "datsource": "no-intro",
-      "in_folder": "False",
-      "ignore_extensions": [],
-      "frontends": {
-        "EmulationStation": {
-          "media_path": "/tools/downloaded_media/nes/",
-          "roms_path": "/roms/nes/"
-        },
-        "OnionOS": {
-          "media_path": "/roms/fc/",
-          "roms_path": "/roms/fc/"
-        }
-      },
-      "linked_extension": ".zip",
-      "screenscraper_folder": "NES"
-    },
-    "Playstation": {
-      "datfile": "Sony - PlayStation",
-      "datsource": "redump",
-      "ignore_extensions": [".cue", ".m3u"],
-      "in_folder": "True",
-      "frontends": {
-        "EmulationStation": {
-          "roms_path": "/roms/psx/",
-          "media_path": "/tools/downloaded_media/psx/"
-        },
-        "OnionOS": {
-          "media_path": "/roms/psx/",
-          "roms_path": "/roms/psx/"
-        }
-      },
-      "linked_extension": ".chd",
-      "screenscraper_folder": "Playstation"
-    },
-    "Playstation2": {
-      "datfile": "Sony - PlayStation 2",
-      "datsource": "redump",
-      "ignore_extensions": [".cue", ".m3u"],
-      "in_folder": "True",
-      "frontends": {
-        "EmulationStation": {
-          "media_path": "/tools/downloaded_media/ps2/",
-          "roms_path": "/roms/ps2/"
-        }
-      },
-      "linked_extension": ".chd",
-      "screenscraper_folder": "Playstation 2"
-    }
-  },
   "frontend_reference": {
     "FriendlyFrontEndName": {
       "rom_name_preference": "short-or-full",
@@ -100,6 +30,234 @@
       "media_paths" : {
         "Imgs": "miyoo-garlic"
       }
+    }
+  },
+  "Systems": {
+    "NES": {
+      "datfile": "Nintendo - Nintendo Entertainment System (Headered)",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/nes/",
+          "roms_path": "/roms/nes/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/fc/",
+          "roms_path": "/roms/fc/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "NES"
+    },
+    "SNES": {
+      "datfile": "Nintendo - Super Nintendo Entertainment System",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/snes/",
+          "roms_path": "/roms/snes/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/sfc/",
+          "roms_path": "/roms/sfc/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Super Nintendo"
+    },
+    "Gameboy": {
+      "datfile": "Nintendo - Game Boy",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/gb/",
+          "roms_path": "/roms/gb/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/GB/",
+          "roms_path": "/roms/GB/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Game Boy"
+    },
+    "Gameboy Color": {
+      "datfile": "Nintendo - Game Boy Color",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/gbc/",
+          "roms_path": "/roms/gbc/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/GBC/",
+          "roms_path": "/roms/GBC/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Game Boy Color"
+    },
+    "Genesis": {
+      "datfile": "Sega - Mega Drive - Genesis",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/genesis/",
+          "roms_path": "/roms/genesis/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/MD/",
+          "roms_path": "/roms/MD/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Genesis"
+    },
+    "Nintendo 64": {
+      "datfile": "Nintendo - Nintendo 64 (BigEndian)",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/n64/",
+          "roms_path": "/roms/n64/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Nintendo 64"
+    },
+    "Gameboy Advance": {
+      "datfile": "Nintendo - Gameboy Advance",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/gba/",
+          "roms_path": "/roms/gba/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/GBA/",
+          "roms_path": "/roms/GBA/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Game Boy Advance"
+    },
+    "Atari 2600": {
+      "datfile": "Atari - 2600",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/atari2600/",
+          "roms_path": "/roms/atari2600/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/ATARI/",
+          "roms_path": "/roms/ATARI/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Atari 2600"
+    },
+    "Atari 5200" : {
+      "datfile": "Atari - 5200",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/atari5200/",
+          "roms_path": "/roms/atari5200/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/FIFTYTWOHUNDRED/",
+          "roms_path": "/roms/FIFTYTWOHUNDRED/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Atari 5200"
+    },
+    "Atari 7800" : {
+      "datfile": "Atari - 7800",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/atari7800/",
+          "roms_path": "/roms/atari7800/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/SEVENTYEIGHTHUNDRED/",
+          "roms_path": "/roms/SEVENTYEIGHTHUNDRED/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Atari 7800"
+    },
+    "Sega Game Gear" : {
+      "datfile": "Sega - Game Gear",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/gamegear/",
+          "roms_path": "/roms/gamegear/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/GAMEGEAR/",
+          "roms_path": "/roms/GAMEGEAR/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Game Gear"
+    },
+    "Atari Jaguar" : {
+      "datfile": "Atari - Jaguar (ROM)",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/atarijaguar/",
+          "roms_path": "/roms/atarijaguar/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Atari Jaguar"
+    },
+    "Atari Lynx" : {
+      "datfile": "Atari - Lynx (LYX)",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/atarilynx/",
+          "roms_path": "/roms/atarilynx/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/LYNX/",
+          "roms_path": "/roms/LYNX/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Atari Lynx"
     }
   }
 }

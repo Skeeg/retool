@@ -88,6 +88,7 @@ if __name__ == "__main__":
     links_subdirectory = os.environ.get('LINKS_SUBDIRECTORY')
     rom_vault_relative_path = os.environ.get('ROM_VAULT_RELATIVE_PATH')
     media_vault_relative_path = os.environ.get('MEDIA_VAULT_RELATIVE_PATH')
+    link_media_files = os.environ.get('LINK_MEDIA_FILES')
 
     # Load the map file
     with open(map_file, 'r') as json_file:
@@ -132,66 +133,44 @@ if __name__ == "__main__":
                             except Exception as e:
                                 print(f"Error creating symlink for {game_name}: {e}")
                                 print(f"Game Info: {file}")
-                            
-                            frontend_media_paths = map_data['frontends'][frontend]['media_paths']
-                            for media_path in frontend_media_paths:
-                                #Define Paths
-                                actual_media_asset_path = frontend_media_paths[media_path]
-                                frontend_asset_path = media_path
-                                frontend_media_folder = frontend_folder + full_system['frontends'][frontend]['media_path'] + frontend_asset_path
-                                media_vault_relative_path = os.environ.get('MEDIA_VAULT_RELATIVE_PATH')
-                                media_vault_relative_path = media_vault_relative_path + screenscraper_subfolder + '/' + actual_media_asset_path + '/'
-                                frontend_media_path_depth = full_system['frontends'][frontend]['media_path'].count('/')
-                                for i in (range(frontend_media_path_depth + 1)):
-                                    media_vault_relative_path = "../" + media_vault_relative_path
-                                #First find matches in the folder
-                                matched_media_files = []
-                                for media_file in media_files[actual_media_asset_path]:
-                                    if rom_name['full'] in media_file:
-                                        matched_media_files.append(media_file)
-                                # print(matched_media_files)
-                                mapped_media_filenames = []
-                                for matched_filenames in matched_media_files:
-                                    mapped_media_extension = os.path.splitext(matched_filenames)[1]
-                                    mapped_media_filenames.append({'preffered_name': rom_name[rom_name_preference] + mapped_media_extension, 'actual_name': rom_name['full'] + mapped_media_extension})
-                                # print(mapped_media_filenames)
-                                #Then create the symlink
-                                # frontend_media_file_path = frontend_media_folder + rom_name[rom_name_preference] + full_system['frontends'][frontend]['media_path']
-                                for item in mapped_media_filenames:
-                                    actual_media_file_relative_path = os.path.join(media_vault_relative_path, item['actual_name'])
-                                    frontend_linked_media_file_path = os.path.join(frontend_media_folder, item['preffered_name'])
-                                    try:
-                                        os.makedirs(frontend_media_folder, exist_ok=True)
-                                        os.symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path)
-                                        print(f"Created symlink: {actual_media_file_relative_path} to {frontend_linked_media_file_path}")
-                                    except FileExistsError:
-                                        print(f"Link already exists: {frontend_linked_media_file_path}")
-                                    except Exception as e:
-                                        print(f"Error creating symlink for {game_name}: {e}")
-                                        print(f"Game Info: {file}")
+                            if link_media_files == "true":
+                                frontend_media_paths = map_data['frontends'][frontend]['media_paths']
+                                for media_path in frontend_media_paths:
+                                    #Define Paths
+                                    actual_media_asset_path = frontend_media_paths[media_path]
+                                    frontend_asset_path = media_path
+                                    frontend_media_folder = frontend_folder + full_system['frontends'][frontend]['media_path'] + frontend_asset_path
+                                    media_vault_relative_path = os.environ.get('MEDIA_VAULT_RELATIVE_PATH')
+                                    media_vault_relative_path = media_vault_relative_path + screenscraper_subfolder + '/' + actual_media_asset_path + '/'
+                                    frontend_media_path_depth = full_system['frontends'][frontend]['media_path'].count('/')
+                                    for i in (range(frontend_media_path_depth + 1)):
+                                        media_vault_relative_path = "../" + media_vault_relative_path
                                     
-                                # for i in range(frontend_media_path_depth):
-                                #     media_vault_relative_path = "../" + media_vault_relative_path
-                                # actual_media_relative_path = media_vault_relative_path + rom_name['full'] + full_system['frontends'][frontend]['media'][media]['media_extension']
-                                # try:
-                                #     os.makedirs(frontend_media_folder, exist_ok=True)
-                                #     os.symlink(src=actual_media_relative_path, dst=frontend_media_file_path)
-                                # except FileExistsError:
-                                #     print(f"File already exists: {frontend_media_file_path}")
-                                # except Exception as e:
-                                #     print(f"Error creating symlink for {game_name}: {e}")
-                                #     print(f"Game Info: {file}")
-                                # finally:
-                                #     print(f"Created symlink: {actual_media_relative_path} to {frontend_media_file_path}")
-                            
-                        
-                # try:
-                #     create_symlink(system, game_info)
-                # except Exception as e:
-                #     print(f"Error creating symlink for {system}: {e}")
-                #     print(f"Game Info: {game_info}")
-            
+                                    matched_media_files = []
+                                    for media_file in media_files[actual_media_asset_path]:
+                                        if rom_name['full'] in media_file:
+                                            matched_media_files.append(media_file)
+                                    
+                                    mapped_media_filenames = []
+                                    for matched_filenames in matched_media_files:
+                                        mapped_media_extension = os.path.splitext(matched_filenames)[1]
+                                        mapped_media_filenames.append({'preffered_name': rom_name[rom_name_preference] + mapped_media_extension, 'actual_name': rom_name['full'] + mapped_media_extension})
+                                    
+                                    for item in mapped_media_filenames:
+                                        actual_media_file_relative_path = os.path.join(media_vault_relative_path, item['actual_name'])
+                                        frontend_linked_media_file_path = os.path.join(frontend_media_folder, item['preffered_name'])
+                                        try:
+                                            os.makedirs(frontend_media_folder, exist_ok=True)
+                                            os.symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path)
+                                            print(f"Created symlink: {actual_media_file_relative_path} to {frontend_linked_media_file_path}")
+                                        except FileExistsError:
+                                            print(f"Link already exists: {frontend_linked_media_file_path}")
+                                        except Exception as e:
+                                            print(f"Error creating symlink for {game_name}: {e}")
+                                            print(f"Game Info: {file}")
+                                    
         else:
             print(f"Symlink file not found: {symlink_file}")
 
     # print(json.dumps(all_symlink_files, indent=2, sort_keys=True))
+
