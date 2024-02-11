@@ -294,6 +294,60 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "WonderSwan"
-    }
+    },
+    "Sega SG-1000" : {
+      "datfile": "Sega - SG-1000",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/sg-1000/",
+          "roms_path": "/roms/sg-1000/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/SEGASGONE/",
+          "roms_path": "/roms/SEGASGONE/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "SG-1000"
+    },
+    "NeoGeo Pocket Color" : {
+      "datfile": "SNK - Neo Geo Pocket Color",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/ngpc/",
+          "roms_path": "/roms/ngpc/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/NGP/",
+          "roms_path": "/roms/NGP/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Neo Geo Pocket Color"
+    },
+    "NeoGeo Pocket" : {
+      "datfile": "SNK - NeoGeo Pocket",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/ngp/",
+          "roms_path": "/roms/ngp/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/NGP/",
+          "roms_path": "/roms/NGP/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Neo Geo Pocket"
+    },
   }
 }
