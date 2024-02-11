@@ -44,8 +44,8 @@
           "roms_path": "/roms/nes/"
         },
         "OnionOS": {
-          "media_path": "/roms/fc/",
-          "roms_path": "/roms/fc/"
+          "media_path": "/roms/FC/",
+          "roms_path": "/roms/FC/"
         }
       },
       "linked_extension": ".zip",
@@ -62,8 +62,8 @@
           "roms_path": "/roms/snes/"
         },
         "OnionOS": {
-          "media_path": "/roms/sfc/",
-          "roms_path": "/roms/sfc/"
+          "media_path": "/roms/SFC/",
+          "roms_path": "/roms/SFC/"
         }
       },
       "linked_extension": ".zip",
@@ -138,7 +138,7 @@
       "screenscraper_folder": "Nintendo 64"
     },
     "Gameboy Advance": {
-      "datfile": "Nintendo - Gameboy Advance",
+      "datfile": "Nintendo - Game Boy Advance",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -220,8 +220,8 @@
           "roms_path": "/roms/gamegear/"
         },
         "OnionOS": {
-          "media_path": "/roms/GAMEGEAR/",
-          "roms_path": "/roms/GAMEGEAR/"
+          "media_path": "/roms/GG/",
+          "roms_path": "/roms/GG/"
         }
       },
       "linked_extension": ".zip",
