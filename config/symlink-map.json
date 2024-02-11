@@ -484,6 +484,42 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "Nintendo DS"
+    },
+    "Sega Master System" : {
+      "datfile": "Sega - Master System - Mark III",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/mastersystem/",
+          "roms_path": "/roms/mastersystem/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/MS/",
+          "roms_path": "/roms/MS/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Master System"
+    },
+    "MS-DOS" : {
+      "datfile": "MS-DOS",
+      "datsource": "no-intro",
+      "in_folder": "True",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/dos/",
+          "roms_path": "/roms/dos/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/DOS/",
+          "roms_path": "/roms/DOS/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "MS-DOS"
     }
   }
 }
