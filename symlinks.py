@@ -28,7 +28,7 @@ def get_symlink_files(directory):
     for filename in directory_listing:
         if filename.endswith(".symlinkdata.json"):
             symlink_files.append(filename)
-    return symlink_files
+    return sorted(symlink_files)
 
 def trim_to_single_trailing_slash(input_string):
     return input_string.rstrip("/") + "/"
