@@ -314,7 +314,7 @@
       "screenscraper_folder": "SG-1000"
     },
     "NeoGeo Pocket Color" : {
-      "datfile": "SNK - Neo Geo Pocket Color",
+      "datfile": "SNK - NeoGeo Pocket Color",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
