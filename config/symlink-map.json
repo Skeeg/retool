@@ -424,8 +424,8 @@
       "ignore_extensions": [],
       "frontends": {
         "EmulationStation": {
-          "media_path": "/tools/downloaded_media/pce/",
-          "roms_path": "/roms/pce/"
+          "media_path": "/tools/downloaded_media/pcengine/",
+          "roms_path": "/roms/pcengine/"
         },
         "OnionOS": {
           "media_path": "/roms/PCE/",
