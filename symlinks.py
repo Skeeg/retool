@@ -153,13 +153,13 @@ if __name__ == "__main__":
                                 mapped_media_filenames = []
                                 for matched_filenames in matched_media_files:
                                     mapped_media_extension = os.path.splitext(matched_filenames)[1]
-                                    mapped_media_filenames.append(rom_name[rom_name_preference] + mapped_media_extension)
+                                    mapped_media_filenames.append({'preffered_name': rom_name[rom_name_preference] + mapped_media_extension, 'actual_name': rom_name['full'] + mapped_media_extension})
                                 # print(mapped_media_filenames)
                                 #Then create the symlink
                                 # frontend_media_file_path = frontend_media_folder + rom_name[rom_name_preference] + full_system['frontends'][frontend]['media_path']
                                 for item in mapped_media_filenames:
-                                    actual_media_file_relative_path = os.path.join(media_vault_relative_path, item)
-                                    frontend_linked_media_file_path = os.path.join(frontend_media_folder, item)
+                                    actual_media_file_relative_path = os.path.join(media_vault_relative_path, item['actual_name'])
+                                    frontend_linked_media_file_path = os.path.join(frontend_media_folder, item['preffered_name'])
                                     try:
                                         os.makedirs(frontend_media_folder, exist_ok=True)
                                         os.symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path)

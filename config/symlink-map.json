@@ -98,7 +98,7 @@
     "OnionOS": {
       "rom_name_preference": "short",
       "media_paths" : {
-        "img": "miyoo-garlic"
+        "Imgs": "miyoo-garlic"
       }
     }
   }
