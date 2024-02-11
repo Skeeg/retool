@@ -538,6 +538,24 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "Virtual Boy"
+    },
+    "Coleco - ColecoVision" : {
+      "datfile": "Coleco - ColecoVision",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/colecovision/",
+          "roms_path": "/roms/colecovision/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/COLECO/",
+          "roms_path": "/roms/COLECO/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "ColecoVision"
     }
   }
 }
