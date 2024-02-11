@@ -1,5 +1,23 @@
 {
   "Systems": {
+    "SNES": {
+      "datfile": "Nintendo - Super Nintendo Entertainment System",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/snes/",
+          "roms_path": "/roms/snes/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/sfc/",
+          "roms_path": "/roms/sfc/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Super Nintendo"
+    },
     "NES": {
       "datfile": "Nintendo - Nintendo Entertainment System (Headered)",
       "datsource": "no-intro",
@@ -16,8 +34,7 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "NES",
-      "use_rom_file_name": "True"
+      "screenscraper_folder": "NES"
     },
     "Playstation": {
       "datfile": "Sony - PlayStation",
@@ -35,8 +52,7 @@
         }
       },
       "linked_extension": ".chd",
-      "screenscraper_folder": "Playstation",
-      "use_rom_file_name": "True"
+      "screenscraper_folder": "Playstation"
     },
     "Playstation2": {
       "datfile": "Sony - PlayStation 2",
@@ -50,32 +66,40 @@
         }
       },
       "linked_extension": ".chd",
-      "screenscraper_folder": "Playstation 2",
-      "use_rom_file_name": "True"
+      "screenscraper_folder": "Playstation 2"
     }
   },
   "frontend_reference": {
     "FriendlyFrontEndName": {
-      "screenscraper_folder": "frontend_expected_folder_in_media_path",
-      "link": "link_destination"
+      "rom_name_preference": "short-or-full",
+      "media_paths" : {
+        "screenscraper_folder": "frontend_expected_folder_in_media_path",
+        "link": "link_destination"
+      }
     }
   },
   "frontends": {
     "EmulationStation": {
-      "3dboxes": "box3d",
-      "backcovers": "box2dback",
-      "covers": "box2dfront",
-      "fanart": "fanart",
-      "manuals": "manual",
-      "marquees": "screenmarquee",
-      "miximages": "recalbox_mix",
-      "physicalmedia": "support",
-      "screenshots": "screenshot",
-      "titlescreens": "screenshottitle",
-      "videos": "videos"
+      "rom_name_preference": "full",
+      "media_paths" : {
+          "3dboxes": "box3d",
+          "backcovers": "box2dback",
+          "covers": "box2dfront",
+          "fanart": "fanart",
+          "manuals": "manual",
+          "marquees": "screenmarquee",
+          "miximages": "recalbox_mix",
+          "physicalmedia": "support",
+          "screenshots": "screenshot",
+          "titlescreens": "screenshottitle",
+          "videos": "videos"
+        }
     },
     "OnionOS": {
-      "img": "miyoo-garlic"
+      "rom_name_preference": "short",
+      "media_paths" : {
+        "img": "miyoo-garlic"
+      }
     }
   }
 }
