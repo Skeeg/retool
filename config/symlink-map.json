@@ -386,7 +386,7 @@
       "screenscraper_folder": "VIC-20"
     },
     "Commodore 64" : {
-      "datfile": "Commodore - 64",
+      "datfile": "Commodore - Commodore 64",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -404,7 +404,7 @@
       "screenscraper_folder": "Commodore 64"
     },
     "Commodore 64 Tapes" : {
-      "datfile": "Commodore - 64 (Tapes)",
+      "datfile": "Commodore - Commodore 64 (Tapes)",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
