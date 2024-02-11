@@ -588,6 +588,60 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "Nintendo 3DS"
+    },
+    "Supervision" : {
+      "datfile": "Watara - Supervision",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/supervision/",
+          "roms_path": "/roms/supervision/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/SUPERVISION/",
+          "roms_path": "/roms/SUPERVISION/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Supervision"
+    },
+    "Microsoft MSX-2" : {
+      "datfile": "Microsoft - MSX2",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/msx2/",
+          "roms_path": "/roms/msx2/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/MSX/",
+          "roms_path": "/roms/MSX/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "MSX"
+    },
+    "Microsoft MSX" : {
+      "datfile": "Microsoft - MSX",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/msx1/",
+          "roms_path": "/roms/msx1/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/MSX/",
+          "roms_path": "/roms/MSX/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "MSX"
     }
   }
 }
