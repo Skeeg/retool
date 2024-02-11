@@ -416,6 +416,74 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "Commodore 64"
+    },
+    "NEC - PC Engine" : {
+      "datfile": "NEC - PC Engine - TurboGrafx 16",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/pce/",
+          "roms_path": "/roms/pce/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/PCE/",
+          "roms_path": "/roms/PCE/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "PC Engine"
+    },
+    "NEC - PC-88" : {
+      "datfile": "NEC - PC-88",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/pc88/",
+          "roms_path": "/roms/pc88/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/PCEIGHTYEIGHT/",
+          "roms_path": "/roms/PCEIGHTYEIGHT/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "PC-88"
+    },
+    "NEC - PC-98" : {
+      "datfile": "NEC - PC-98",
+      "datsource": "no-intro",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/pc98/",
+          "roms_path": "/roms/pc98/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/PCNINETYEIGHT/",
+          "roms_path": "/roms/PCNINETYEIGHT/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "PC-98"
+    },
+    "Nintendo DS" : {
+      "datfile": "Nintendo - Nintendo DS (Decrypted)",
+      "datsource": "no-intro",
+      "in_folder": "True",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/nds/",
+          "roms_path": "/roms/nds/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Nintendo DS"
     }
   }
 }
