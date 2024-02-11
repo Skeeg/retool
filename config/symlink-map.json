@@ -574,6 +574,20 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "Famicom Disk System"
+    },
+    "Nintendo - 3DS" : {
+      "datfile": "Nintendo - Nintendo 3DS (Decrypted)",
+      "datsource": "no-intro",
+      "in_folder": "True",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/3ds/",
+          "roms_path": "/roms/3ds/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "Nintendo 3DS"
     }
   }
 }
