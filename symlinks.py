@@ -147,7 +147,7 @@ if __name__ == "__main__":
                                         media_vault_relative_path = "../" + media_vault_relative_path
                                     
                                     matched_media_files = []
-                                    if not media_files == {}: 
+                                    try:
                                         for media_file in media_files[actual_media_asset_path]:
                                             if rom_name['full'] in media_file:
                                                 matched_media_files.append(media_file)
@@ -169,6 +169,8 @@ if __name__ == "__main__":
                                             except Exception as e:
                                                 print(f"Error creating symlink for {game_name}: {e}")
                                                 print(f"Game Info: {file}")
+                                    except KeyError:
+                                        print(f"Media folder not found: {actual_media_asset_path}")
                                         
         else:
             print(f"Symlink file not found: {symlink_file}")
