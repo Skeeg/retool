@@ -147,28 +147,29 @@ if __name__ == "__main__":
                                         media_vault_relative_path = "../" + media_vault_relative_path
                                     
                                     matched_media_files = []
-                                    for media_file in media_files[actual_media_asset_path]:
-                                        if rom_name['full'] in media_file:
-                                            matched_media_files.append(media_file)
-                                    
-                                    mapped_media_filenames = []
-                                    for matched_filenames in matched_media_files:
-                                        mapped_media_extension = os.path.splitext(matched_filenames)[1]
-                                        mapped_media_filenames.append({'preffered_name': rom_name[rom_name_preference] + mapped_media_extension, 'actual_name': rom_name['full'] + mapped_media_extension})
-                                    
-                                    for item in mapped_media_filenames:
-                                        actual_media_file_relative_path = os.path.join(media_vault_relative_path, item['actual_name'])
-                                        frontend_linked_media_file_path = os.path.join(frontend_media_folder, item['preffered_name'])
-                                        try:
-                                            os.makedirs(frontend_media_folder, exist_ok=True)
-                                            os.symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path)
-                                            print(f"Created symlink: {actual_media_file_relative_path} to {frontend_linked_media_file_path}")
-                                        except FileExistsError:
-                                            print(f"Link already exists: {frontend_linked_media_file_path}")
-                                        except Exception as e:
-                                            print(f"Error creating symlink for {game_name}: {e}")
-                                            print(f"Game Info: {file}")
-                                    
+                                    if not media_files == {}: 
+                                        for media_file in media_files[actual_media_asset_path]:
+                                            if rom_name['full'] in media_file:
+                                                matched_media_files.append(media_file)
+                                        
+                                        mapped_media_filenames = []
+                                        for matched_filenames in matched_media_files:
+                                            mapped_media_extension = os.path.splitext(matched_filenames)[1]
+                                            mapped_media_filenames.append({'preffered_name': rom_name[rom_name_preference] + mapped_media_extension, 'actual_name': rom_name['full'] + mapped_media_extension})
+                                        
+                                        for item in mapped_media_filenames:
+                                            actual_media_file_relative_path = os.path.join(media_vault_relative_path, item['actual_name'])
+                                            frontend_linked_media_file_path = os.path.join(frontend_media_folder, item['preffered_name'])
+                                            try:
+                                                os.makedirs(frontend_media_folder, exist_ok=True)
+                                                os.symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path)
+                                                print(f"Created symlink: {actual_media_file_relative_path} to {frontend_linked_media_file_path}")
+                                            except FileExistsError:
+                                                print(f"Link already exists: {frontend_linked_media_file_path}")
+                                            except Exception as e:
+                                                print(f"Error creating symlink for {game_name}: {e}")
+                                                print(f"Game Info: {file}")
+                                        
         else:
             print(f"Symlink file not found: {symlink_file}")
 
