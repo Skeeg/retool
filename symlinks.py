@@ -117,15 +117,8 @@ if __name__ == "__main__":
                                         for item in mapped_media_filenames:
                                             actual_media_file_relative_path = os.path.join(media_vault_relative_path, item['actual_name'])
                                             frontend_linked_media_file_path = os.path.join(frontend_media_folder, item['preffered_name'])
-                                            try:
-                                                os.makedirs(frontend_media_folder, exist_ok=True)
-                                                os.symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path)
-                                                print(f"Created symlink: {actual_media_file_relative_path} to {frontend_linked_media_file_path}")
-                                            except FileExistsError:
-                                                print(f"Link already exists: {frontend_linked_media_file_path}")
-                                            except Exception as e:
-                                                print(f"Error creating symlink for {game_name}: {e}")
-                                                print(f"Game Info: {file}")
+                                            create_symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path)
+
                                     except KeyError:
                                         print(f"Media folder not found: {actual_media_asset_path}")
                                         
