@@ -32,8 +32,10 @@ def walk_directory(base_path):
                 result[relative_path].append(file)
     return result
 
-def create_symlink(src, dst):
+def create_symlink(src, dst, check_src_existence=False):
     try:
+        if check_src_existence and not os.path.exists(src):
+            print(f"Source file does not exist: {src}, still creating link")
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         os.symlink(src=src, dst=dst)
         print(f"Created symlink: {src} to {dst}")
@@ -52,6 +54,7 @@ if __name__ == "__main__":
     rom_vault_relative_path = os.environ.get('ROM_VAULT_RELATIVE_PATH')
     media_vault_relative_path = os.environ.get('MEDIA_VAULT_RELATIVE_PATH')
     link_media_files = os.environ.get('LINK_MEDIA_FILES')
+    check_src_existence = os.environ.get('CHECK_SRC_EXISTENCE')
 
     # Load the map file
     with open(map_file, 'r') as json_file:
@@ -88,7 +91,7 @@ if __name__ == "__main__":
                                 rom_vault_relative_path = "../" + rom_vault_relative_path
                             actual_file_relative_path = rom_vault_relative_path + rom_name['full'] + full_system['linked_extension']
                             
-                            create_symlink(src=actual_file_relative_path, dst=frontend_linked_file_path)
+                            create_symlink(src=actual_file_relative_path, dst=frontend_linked_file_path, check_src_existence=check_src_existence)
                             
                             if link_media_files == "true":
                                 frontend_media_paths = map_data['frontends'][frontend]['media_paths']
@@ -117,7 +120,7 @@ if __name__ == "__main__":
                                         for item in mapped_media_filenames:
                                             actual_media_file_relative_path = os.path.join(media_vault_relative_path, item['actual_name'])
                                             frontend_linked_media_file_path = os.path.join(frontend_media_folder, item['preffered_name'])
-                                            create_symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path)
+                                            create_symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path, check_src_existence=check_src_existence)
 
                                     except KeyError:
                                         print(f"Media folder not found: {actual_media_asset_path}")
