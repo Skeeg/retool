@@ -32,6 +32,16 @@ def walk_directory(base_path):
                 result[relative_path].append(file)
     return result
 
+def create_symlink(src, dst):
+    try:
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        os.symlink(src=src, dst=dst)
+        print(f"Created symlink: {src} to {dst}")
+    except FileExistsError:
+        print(f"Link already exists: {dst}")
+    except Exception as e:
+        print(f"Error creating symlink: {e}")
+
 if __name__ == "__main__":
     # Establish Variables
     map_file = os.environ.get('MAP_FILE')
@@ -77,15 +87,9 @@ if __name__ == "__main__":
                             for i in range(frontend_roms_path_depth):
                                 rom_vault_relative_path = "../" + rom_vault_relative_path
                             actual_file_relative_path = rom_vault_relative_path + rom_name['full'] + full_system['linked_extension']
-                            try:
-                                os.makedirs(frontend_roms_folder, exist_ok=True)
-                                os.symlink(src=actual_file_relative_path, dst=frontend_linked_file_path)
-                                print(f"Created symlink: {actual_file_relative_path} to {frontend_linked_file_path}")
-                            except FileExistsError:
-                                print(f"Link already exists: {frontend_linked_file_path}")
-                            except Exception as e:
-                                print(f"Error creating symlink for {game_name}: {e}")
-                                print(f"Game Info: {file}")
+                            
+                            create_symlink(src=actual_file_relative_path, dst=frontend_linked_file_path)
+                            
                             if link_media_files == "true":
                                 frontend_media_paths = map_data['frontends'][frontend]['media_paths']
                                 for media_path in frontend_media_paths:
