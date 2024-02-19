@@ -3,25 +3,6 @@ import json
 import re
 from glob import glob
 
-def create_symlink(main_entry_name, game_info):
-    actualFileName = game_info['name']
-    symlinkName = re.sub(r'\.nes$', '.zip', actualFileName)
-    symlinkTarget = main_entry_name + '.zip'
-    os.symlink(symlinkName, symlinkTarget)
-    print(f"Created symlink: {symlinkName} to {symlinkTarget}")
-
-def process_link(json_data):
-    for game_entry in json_data:
-        main_entry_name = list(game_entry.keys())[0]
-        game_info_list = game_entry[main_entry_name]
-
-        for game_info in game_info_list:
-            try:
-                create_symlink(main_entry_name, game_info)
-            except Exception as e:
-                print(f"Error creating symlink for {main_entry_name}: {e}")
-                print(f"Game Info: {game_info}")
-
 def get_symlink_files(directory):
     symlink_files = []
     directory_listing = os.listdir(directory)
@@ -33,40 +14,12 @@ def get_symlink_files(directory):
 def trim_to_single_trailing_slash(input_string):
     return input_string.rstrip("/") + "/"
 
-# def extract_datfiles(data):
-#     datfiles = []
-#     systems = data.get('Systems', {})
-#     for system_info in systems.values():
-#         datfile = system_info.get('datfile')
-#         if datfile:
-#             datfiles.append(datfile)
-#     return datfiles
-
-# def match_filenames(truncated_strings, full_filenames):
-#     matched_filenames = []
-
-#     for string in truncated_strings:
-#         for filename in full_filenames:
-#             if filename.startswith(string + ' ('):
-#                 matched_filenames.append((string, filename))
-#                 break  # Break once a match is found to avoid unnecessary iterations
-
-    # return matched_filenames
-
 def match_dat_filename(truncated_string, full_filenames):
     for filename in full_filenames:
         if filename.startswith(truncated_string + ' ('):
             return filename
     
     return None
-
-def find_files_with_string(base_path, search_string):
-    result = []
-    for root, dirs, files in os.walk(base_path):
-        for file in files:
-            if search_string in file:
-                result.append(os.path.join(root, file))
-    return result
 
 def walk_directory(base_path):
     result = {}
@@ -176,4 +129,3 @@ if __name__ == "__main__":
             print(f"Symlink file not found: {symlink_file}")
 
     # print(json.dumps(all_symlink_files, indent=2, sort_keys=True))
-
