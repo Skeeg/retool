@@ -1,12 +1,25 @@
 import os
 import json
-import re
 from glob import glob
+
+# Environment variables in a dictionary
+env_vars = {
+    'MAP_FILE': os.environ.get('MAP_FILE'),
+    'BASE_1G1R_DIRECTORY': os.environ.get('BASE_1G1R_DIRECTORY'),
+    'BASE_MEDIA_DIRECTORY': os.environ.get('BASE_MEDIA_DIRECTORY'),
+    'DATS_SUBDIRECTORY': os.environ.get('DATS_SUBDIRECTORY'),
+    'LINKS_SUBDIRECTORY': os.environ.get('LINKS_SUBDIRECTORY'),
+    'ROM_VAULT_PATH': os.environ.get('ROM_VAULT_PATH'),
+    'MEDIA_VAULT_PATH': os.environ.get('MEDIA_VAULT_PATH'),
+    'LINK_MEDIA_FILES': os.environ.get('LINK_MEDIA_FILES'),
+    'OVERWRITE_LINK': os.environ.get('OVERWRITE_LINK'),
+    'QUIET_MODE': os.environ.get('QUIET_MODE')
+}
 
 def get_symlink_files(directory):
     return sorted([filename for filename in os.listdir(directory) if filename.endswith(".symlinkdata.json")])
 
-def normalize_path(path, leading_sep = False, trailing_sep = False):
+def normalize_path(path, leading_sep=False, trailing_sep=False):
     if leading_sep and trailing_sep:
         return os.path.sep + path.lstrip(os.path.sep).rstrip(os.path.sep) + os.path.sep
     if leading_sep and not trailing_sep:
@@ -20,7 +33,6 @@ def match_dat_filename(truncated_string, full_filenames):
     for filename in full_filenames:
         if filename.startswith(truncated_string + ' ('):
             return filename
-    
     return None
 
 def walk_directory(base_path):
@@ -43,30 +55,24 @@ def create_symlink(src, dst, overwrite_link=False):
             os.symlink(src=src, dst=dst)
             print(f"Created symlink: {src} to {dst}")
         else:
-            if not os.environ.get('QUIET_MODE') == "true": print(f"Link already exists: {dst}")
+            if not env_vars['QUIET_MODE'] == "true":
+                print(f"Link already exists: {dst}")
+    except FileExistsError:
+        if not env_vars['QUIET_MODE'] == "true":
+            print(f"File exists: {dst}")
+    except PermissionError:
+        print(f"Permission denied: {dst}")
     except Exception as e:
         print(f"Error creating symlink: {e}")
 
 if __name__ == "__main__":
-    # Establish Variables
-    map_file = os.environ.get('MAP_FILE')
-    base_1g1r_directory = os.environ.get('BASE_1G1R_DIRECTORY')
-    base_media_directory = os.environ.get('BASE_MEDIA_DIRECTORY')
-    dats_subdirectory = os.environ.get('DATS_SUBDIRECTORY')
-    links_subdirectory = os.environ.get('LINKS_SUBDIRECTORY')
-    rom_vault_path = os.environ.get('ROM_VAULT_PATH')
-    media_vault_path = os.environ.get('MEDIA_VAULT_PATH')
-    link_media_files = os.environ.get('LINK_MEDIA_FILES')
-    overwrite_link = os.environ.get('OVERWRITE_LINK')
-    quiet_mode = os.environ.get('QUIET_MODE')
-
     # Load the map file
-    with open(map_file, 'r') as json_file:
+    with open(env_vars['MAP_FILE'], 'r') as json_file:
         map_data = json.load(json_file)
         
-    all_symlink_files = get_symlink_files(os.path.join(normalize_path(base_1g1r_directory, leading_sep=True), normalize_path(dats_subdirectory, trailing_sep=True)))
-    dats_directory = os.path.join(normalize_path(base_1g1r_directory, leading_sep=True), normalize_path(dats_subdirectory, trailing_sep=True))
-    links_directory = os.path.join(normalize_path(base_1g1r_directory, leading_sep=True), normalize_path(links_subdirectory, trailing_sep=True))
+    all_symlink_files = get_symlink_files(os.path.join(normalize_path(env_vars['BASE_1G1R_DIRECTORY'], leading_sep=True), normalize_path(env_vars['DATS_SUBDIRECTORY'], trailing_sep=True)))
+    dats_directory = os.path.join(normalize_path(env_vars['BASE_1G1R_DIRECTORY'], leading_sep=True), normalize_path(env_vars['DATS_SUBDIRECTORY'], trailing_sep=True))
+    links_directory = os.path.join(normalize_path(env_vars['BASE_1G1R_DIRECTORY'], leading_sep=True), normalize_path(env_vars['LINKS_SUBDIRECTORY'], trailing_sep=True))
 
     for system in map_data['Systems']:
         full_system = map_data['Systems'][system]
@@ -85,14 +91,14 @@ if __name__ == "__main__":
                 normalize_path(frontend_folders[frontend]['base'], leading_sep=True), 
                 normalize_path(full_system['frontends'][frontend]['media_path']))
             frontend_folders['roms_physical_path'] = os.path.join(
-                normalize_path(rom_vault_path, leading_sep=True),
+                normalize_path(env_vars['ROM_VAULT_PATH'], leading_sep=True),
                 os.path.join(
                     normalize_path(full_system['datsource'], trailing_sep=True),
                     normalize_path(full_system['datfile'])))
             frontend_folders['media_physical_path'] = os.path.join(
-                normalize_path(media_vault_path, leading_sep=True),
+                normalize_path(env_vars['MEDIA_VAULT_PATH'], leading_sep=True),
                 os.path.join(
-                    normalize_path(media_vault_path, leading_sep=True),
+                    normalize_path(env_vars['MEDIA_VAULT_PATH'], leading_sep=True),
                     normalize_path(full_system['screenscraper_folder'])))
             frontend_folders[frontend]['rom']['relative_path'] = os.path.relpath(
                 frontend_folders['roms_physical_path'],
@@ -101,8 +107,6 @@ if __name__ == "__main__":
                 frontend_folders['media_physical_path'],
                 frontend_folders[frontend]['media']['links'])
         symlink_file = match_dat_filename(map_data['Systems'][system]['datfile'], all_symlink_files)
-        # screenscraper_subfolder = map_data['Systems'][system]['screenscraper_folder']
-        # screenscraper_folder = base_media_directory + screenscraper_subfolder
         media_files = walk_directory(frontend_folders['media_physical_path'])
         if symlink_file:
             with open(os.path.join(dats_directory, symlink_file), 'r') as json_file:
@@ -120,15 +124,13 @@ if __name__ == "__main__":
                             actual_file_relative_path = os.path.join(frontend_folders[frontend]['rom']['relative_path'], rom_name['full'] + full_system['linked_extension'])
                             frontend_linked_file_path = os.path.join(frontend_folders[frontend]['rom']['links'], rom_name[rom_name_preference] + full_system['linked_extension'])
 
-                            create_symlink(src=actual_file_relative_path, dst=frontend_linked_file_path, overwrite_link=overwrite_link)
+                            create_symlink(src=actual_file_relative_path, dst=frontend_linked_file_path, overwrite_link=env_vars['OVERWRITE_LINK'])
                             
-                            if link_media_files == "true":
+                            if env_vars['LINK_MEDIA_FILES'] == "true":
                                 frontend_media_paths = map_data['frontends'][frontend]['media_paths']
                                 for media_path in frontend_media_paths:
-                                    #Define Paths
                                     actual_media_asset_path = frontend_media_paths[media_path]
                                     frontend_asset_path = media_path
-                                    
                                     matched_media_files = []
                                     try:
                                         for media_file in media_files[actual_media_asset_path]:
@@ -147,12 +149,9 @@ if __name__ == "__main__":
                                             frontend_linked_media_file_path = os.path.join(
                                                 frontend_folders[frontend]['media']['links'],
                                                 os.path.join(frontend_asset_path, item['preffered_name']))
-                                            create_symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path, overwrite_link=overwrite_link)
+                                            create_symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path, overwrite_link=env_vars['OVERWRITE_LINK'])
 
                                     except KeyError:
                                         print(f"Media folder not found: {frontend_folders['media_physical_path']}/{actual_media_asset_path}")
-                                        
         else:
             print(f"Symlink file not found: {symlink_file}")
-
-    # print(json.dumps(all_symlink_files, indent=2, sort_keys=True))
