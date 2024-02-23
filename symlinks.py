@@ -112,9 +112,14 @@ if __name__ == "__main__":
                                 frontend_folders[frontend]['rom']['links'], 
                                 rom_name[rom_name_preference] + full_system['linked_extension'])
                             actual_file_relative_path = os.path.relpath(
-                                actual_file_path,
-                                frontend_linked_file_path)
-                            create_symlink(src=actual_file_relative_path, dst=frontend_linked_file_path, overwrite_link=env_vars['OVERWRITE_LINK'])
+                                os.path.dirname(actual_file_path),
+                                os.path.dirname(frontend_linked_file_path))
+                            create_symlink(
+                                src=os.path.join(
+                                    actual_file_relative_path,
+                                    os.path.basename(actual_file_path)),
+                                dst=frontend_linked_file_path, 
+                                overwrite_link=env_vars['OVERWRITE_LINK'])
                             
                             if env_vars['LINK_MEDIA_FILES'] == "true":
                                 frontend_media_paths = map_data['frontends'][frontend]['media_paths']
@@ -140,9 +145,14 @@ if __name__ == "__main__":
                                                 frontend_folders[frontend]['media']['links'],
                                                 os.path.join(frontend_asset_path, item['preffered_name']))
                                             actual_media_file_relative_path = os.path.relpath(
-                                                actual_media_file_path, 
-                                                frontend_linked_media_file_path)
-                                            create_symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path, overwrite_link=env_vars['OVERWRITE_LINK'])
+                                                os.path.dirname(actual_media_file_path, 
+                                                os.path.dirname(frontend_linked_media_file_path)))
+                                            create_symlink(
+                                                src=os.path.join(
+                                                    actual_media_file_relative_path,
+                                                    os.path.basename(actual_media_file_path)),
+                                                dst=frontend_linked_media_file_path, 
+                                                overwrite_link=env_vars['OVERWRITE_LINK'])
 
                                     except KeyError:
                                         print(f"Media folder not found: {frontend_folders['media_physical_path']}/{actual_media_asset_path}")
