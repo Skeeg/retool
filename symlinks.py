@@ -145,8 +145,8 @@ if __name__ == "__main__":
                                                 frontend_folders[frontend]['media']['links'],
                                                 os.path.join(frontend_asset_path, item['preffered_name']))
                                             actual_media_file_relative_path = os.path.relpath(
-                                                os.path.dirname(actual_media_file_path, 
-                                                os.path.dirname(frontend_linked_media_file_path)))
+                                                os.path.dirname(actual_media_file_path), 
+                                                os.path.dirname(frontend_linked_media_file_path))
                                             create_symlink(
                                                 src=os.path.join(
                                                     actual_media_file_relative_path,
