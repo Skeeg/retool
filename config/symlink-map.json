@@ -33,8 +33,24 @@
     }
   },
   "Systems": {
+    "Sony Playstation 2" : {
+      "datfile": "Sony - PlayStation 2",
+      "roms_folder": "preservation/unmanaged/PS2",
+      "datsource": "redump",
+      "in_folder": "False",
+      "ignore_extensions": [".bin"],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/ps2/",
+          "roms_path": "/roms/ps2/"
+        }
+      },
+      "linked_extension": ".chd",
+      "screenscraper_folder": "preservation/downloaded_media/Playstation 2"
+    },
     "Wonderswan Color" : {
       "datfile": "Bandai - WonderSwan Color",
+      "roms_folder": "preservation/managed/no-intro/Bandai - WonderSwan Color",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -49,10 +65,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "WonderSwan Color"
+      "screenscraper_folder": "preservation/downloaded_media/WonderSwan Color"
     },
     "Wonderswan" : {
       "datfile": "Bandai - WonderSwan",
+      "roms_folder": "preservation/managed/no-intro/Bandai - WonderSwan",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -67,10 +84,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "WonderSwan"
+      "screenscraper_folder": "preservation/downloaded_media/WonderSwan"
     },
     "NES": {
       "datfile": "Nintendo - Nintendo Entertainment System (Headered)",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Nintendo Entertainment System (Headered)",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -85,10 +103,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "NES"
+      "screenscraper_folder": "preservation/downloaded_media/NES"
     },
     "SNES": {
       "datfile": "Nintendo - Super Nintendo Entertainment System",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Super Nintendo Entertainment System",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -103,10 +122,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Super Nintendo"
+      "screenscraper_folder": "preservation/downloaded_media/Super Nintendo"
     },
     "Gameboy": {
       "datfile": "Nintendo - Game Boy",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Game Boy",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -121,10 +141,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Game Boy"
+      "screenscraper_folder": "preservation/downloaded_media/Game Boy"
     },
     "Gameboy Color": {
       "datfile": "Nintendo - Game Boy Color",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Game Boy Color",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -139,10 +160,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Game Boy Color"
+      "screenscraper_folder": "preservation/downloaded_media/Game Boy Color"
     },
     "Genesis": {
       "datfile": "Sega - Mega Drive - Genesis",
+      "roms_folder": "preservation/managed/no-intro/Sega - Mega Drive - Genesis",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -157,10 +179,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Genesis"
+      "screenscraper_folder": "preservation/downloaded_media/Genesis"
     },
     "Nintendo 64": {
       "datfile": "Nintendo - Nintendo 64 (BigEndian)",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Nintendo 64 (BigEndian)",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -171,10 +194,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Nintendo 64"
+      "screenscraper_folder": "preservation/downloaded_media/Nintendo 64"
     },
     "Gameboy Advance": {
       "datfile": "Nintendo - Game Boy Advance",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Game Boy Advance",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -189,10 +213,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Game Boy Advance"
+      "screenscraper_folder": "preservation/downloaded_media/Game Boy Advance"
     },
     "Atari 2600": {
       "datfile": "Atari - 2600",
+      "roms_folder": "preservation/managed/no-intro/Atari - 2600",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -207,10 +232,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Atari 2600"
+      "screenscraper_folder": "preservation/downloaded_media/Atari 2600"
     },
     "Atari 5200" : {
       "datfile": "Atari - 5200",
+      "roms_folder": "preservation/managed/no-intro/Atari - 5200",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -225,10 +251,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Atari 5200"
+      "screenscraper_folder": "preservation/downloaded_media/Atari 5200"
     },
     "Atari 7800" : {
       "datfile": "Atari - 7800",
+      "roms_folder": "preservation/managed/no-intro/Atari - 7800",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -243,10 +270,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Atari 7800"
+      "screenscraper_folder": "preservation/downloaded_media/Atari 7800"
     },
     "Sega Game Gear" : {
       "datfile": "Sega - Game Gear",
+      "roms_folder": "preservation/managed/no-intro/Sega - Game Gear",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -261,10 +289,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Game Gear"
+      "screenscraper_folder": "preservation/downloaded_media/Game Gear"
     },
     "Atari Jaguar" : {
       "datfile": "Atari - Jaguar (ROM)",
+      "roms_folder": "preservation/managed/no-intro/Atari - Jaguar (ROM)",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -275,10 +304,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Atari Jaguar"
+      "screenscraper_folder": "preservation/downloaded_media/Jaguar"
     },
     "Atari Lynx" : {
       "datfile": "Atari - Lynx (LYX)",
+      "roms_folder": "preservation/managed/no-intro/Atari - Lynx (LYX)",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -293,10 +323,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Atari Lynx"
+      "screenscraper_folder": "preservation/downloaded_media/Lynx"
     },
     "Sega SG-1000" : {
       "datfile": "Sega - SG-1000",
+      "roms_folder": "preservation/managed/no-intro/Sega - SG-1000",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -311,10 +342,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "SG-1000"
+      "screenscraper_folder": "preservation/downloaded_media/SG-1000"
     },
     "NeoGeo Pocket Color" : {
       "datfile": "SNK - NeoGeo Pocket Color",
+      "roms_folder": "preservation/managed/no-intro/SNK - NeoGeo Pocket Color",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -329,10 +361,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Neo Geo Pocket Color"
+      "screenscraper_folder": "preservation/downloaded_media/Neo-Geo Pocket Color"
     },
     "NeoGeo Pocket" : {
       "datfile": "SNK - NeoGeo Pocket",
+      "roms_folder": "preservation/managed/no-intro/SNK - NeoGeo Pocket",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -347,10 +380,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Neo Geo Pocket"
+      "screenscraper_folder": "preservation/downloaded_media/Neo-Geo Pocket"
     },
     "Commodore Amiga" : {
       "datfile": "Commodore - Amiga",
+      "roms_folder": "preservation/managed/no-intro/Commodore - Amiga",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -365,10 +399,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Amiga"
+      "screenscraper_folder": "preservation/downloaded_media/Amiga"
     },
     "Commodore VIC-20" : {
       "datfile": "Commodore - VIC-20",
+      "roms_folder": "preservation/managed/no-intro/Commodore - VIC-20",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -383,10 +418,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "VIC-20"
+      "screenscraper_folder": "preservation/downloaded_media/Vic-20"
     },
     "Commodore 64" : {
       "datfile": "Commodore - Commodore 64",
+      "roms_folder": "preservation/managed/no-intro/Commodore - Commodore 64",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -401,10 +437,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Commodore 64"
+      "screenscraper_folder": "preservation/downloaded_media/Commodore 64"
     },
     "Commodore 64 Tapes" : {
       "datfile": "Commodore - Commodore 64 (Tapes)",
+      "roms_folder": "preservation/managed/no-intro/Commodore - Commodore 64 (Tapes)",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -415,10 +452,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Commodore 64"
+      "screenscraper_folder": "preservation/downloaded_media/Commodore 64"
     },
     "NEC - PC Engine" : {
       "datfile": "NEC - PC Engine - TurboGrafx-16",
+      "roms_folder": "preservation/managed/no-intro/NEC - PC Engine - TurboGrafx-16",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -433,46 +471,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "PC Engine"
-    },
-    "NEC - PC-88" : {
-      "datfile": "NEC - PC-88",
-      "datsource": "no-intro",
-      "in_folder": "False",
-      "ignore_extensions": [],
-      "frontends": {
-        "EmulationStation": {
-          "media_path": "/tools/downloaded_media/pc88/",
-          "roms_path": "/roms/pc88/"
-        },
-        "OnionOS": {
-          "media_path": "/roms/PCEIGHTYEIGHT/",
-          "roms_path": "/roms/PCEIGHTYEIGHT/"
-        }
-      },
-      "linked_extension": ".zip",
-      "screenscraper_folder": "PC-88"
-    },
-    "NEC - PC-98" : {
-      "datfile": "NEC - PC-98 series",
-      "datsource": "no-intro",
-      "in_folder": "False",
-      "ignore_extensions": [],
-      "frontends": {
-        "EmulationStation": {
-          "media_path": "/tools/downloaded_media/pc98/",
-          "roms_path": "/roms/pc98/"
-        },
-        "OnionOS": {
-          "media_path": "/roms/PCNINETYEIGHT/",
-          "roms_path": "/roms/PCNINETYEIGHT/"
-        }
-      },
-      "linked_extension": ".zip",
-      "screenscraper_folder": "PC-98"
+      "screenscraper_folder": "preservation/downloaded_media/TurboGrafx-16"
     },
     "Nintendo DS" : {
       "datfile": "Nintendo - Nintendo DS (Decrypted)",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Nintendo DS (Decrypted)",
       "datsource": "no-intro",
       "in_folder": "True",
       "ignore_extensions": [],
@@ -483,10 +486,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Nintendo DS"
+      "screenscraper_folder": "preservation/downloaded_media/Nintendo DS"
     },
     "Sega Master System" : {
       "datfile": "Sega - Master System - Mark III",
+      "roms_folder": "preservation/managed/no-intro/Sega - Master System - Mark III",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -501,10 +505,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Master System"
+      "screenscraper_folder": "preservation/downloaded_media/Master System"
     },
     "MS-DOS" : {
       "datfile": "MS-DOS",
+      "roms_folder": "preservation/collections/exodosv6/eXo/eXoDOS",
       "datsource": "no-intro",
       "in_folder": "True",
       "ignore_extensions": [],
@@ -519,10 +524,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "MS-DOS"
+      "screenscraper_folder": "preservation/downloaded_media/PC Dos"
     },
     "Nintendo - Virtual Boy" : {
       "datfile": "Nintendo - Virtual Boy",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Virtual Boy",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -537,10 +543,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Virtual Boy"
+      "screenscraper_folder": "preservation/downloaded_media/Virtual Boy"
     },
     "Coleco - ColecoVision" : {
       "datfile": "Coleco - ColecoVision",
+      "roms_folder": "preservation/managed/no-intro/Coleco - ColecoVision",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -555,10 +562,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "ColecoVision"
+      "screenscraper_folder": "preservation/downloaded_media/Colecovision"
     },
     "Nintendo - Family Computer Disk System" : {
       "datfile": "Nintendo - Family Computer Disk System (FDS)",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Family Computer Disk System (FDS)",
       "datsource": "no-intro",
       "in_folder": "True",
       "ignore_extensions": [],
@@ -573,10 +581,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Famicom Disk System"
+      "screenscraper_folder": "preservation/downloaded_media/Family Computer Disk System"
     },
     "Nintendo - 3DS" : {
       "datfile": "Nintendo - Nintendo 3DS (Decrypted)",
+      "roms_folder": "preservation/managed/no-intro/Nintendo - Nintendo 3DS (Decrypted)",
       "datsource": "no-intro",
       "in_folder": "True",
       "ignore_extensions": [],
@@ -587,10 +596,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Nintendo 3DS"
+      "screenscraper_folder": "preservation/downloaded_media/Nintendo 3DS"
     },
     "Supervision" : {
       "datfile": "Watara - Supervision",
+      "roms_folder": "preservation/managed/no-intro/Watara - Supervision",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -605,10 +615,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "Supervision"
+      "screenscraper_folder": "preservation/downloaded_media/Watara Supervision"
     },
     "Microsoft MSX-2" : {
       "datfile": "Microsoft - MSX2",
+      "roms_folder": "preservation/managed/no-intro/Microsoft - MSX2",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -623,10 +634,11 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "MSX"
+      "screenscraper_folder": "preservation/downloaded_media/MSX2"
     },
     "Microsoft MSX" : {
       "datfile": "Microsoft - MSX",
+      "roms_folder": "preservation/managed/no-intro/Microsoft - MSX",
       "datsource": "no-intro",
       "in_folder": "False",
       "ignore_extensions": [],
@@ -641,7 +653,7 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "MSX"
+      "screenscraper_folder": "preservation/downloaded_media/MSX"
     }
   }
 }

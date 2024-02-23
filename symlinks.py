@@ -19,16 +19,6 @@ env_vars = {
 def get_symlink_files(directory):
     return sorted([filename for filename in os.listdir(directory) if filename.endswith(".symlinkdata.json")])
 
-def normalize_path(path, leading_sep=False, trailing_sep=False):
-    if leading_sep and trailing_sep:
-        return os.path.sep + path.lstrip(os.path.sep).rstrip(os.path.sep) + os.path.sep
-    if leading_sep and not trailing_sep:
-        return os.path.sep + path.lstrip(os.path.sep).rstrip(os.path.sep)
-    if not leading_sep and trailing_sep:
-        return path.lstrip(os.path.sep).rstrip(os.path.sep) + os.path.sep
-    if not leading_sep and not trailing_sep:
-        return path.lstrip(os.path.sep).rstrip(os.path.sep)
-
 def match_dat_filename(truncated_string, full_filenames):
     for filename in full_filenames:
         if filename.startswith(truncated_string + ' ('):
@@ -70,9 +60,9 @@ if __name__ == "__main__":
     with open(env_vars['MAP_FILE'], 'r') as json_file:
         map_data = json.load(json_file)
         
-    all_symlink_files = get_symlink_files(os.path.join(normalize_path(env_vars['BASE_1G1R_DIRECTORY'], leading_sep=True), normalize_path(env_vars['DATS_SUBDIRECTORY'], trailing_sep=True)))
-    dats_directory = os.path.join(normalize_path(env_vars['BASE_1G1R_DIRECTORY'], leading_sep=True), normalize_path(env_vars['DATS_SUBDIRECTORY'], trailing_sep=True))
-    links_directory = os.path.join(normalize_path(env_vars['BASE_1G1R_DIRECTORY'], leading_sep=True), normalize_path(env_vars['LINKS_SUBDIRECTORY'], trailing_sep=True))
+    dats_directory = os.path.normpath(env_vars['DATS_SUBDIRECTORY'])
+    links_directory = os.path.normpath(env_vars['LINKS_SUBDIRECTORY'])
+    all_symlink_files = get_symlink_files(dats_directory)
 
     for system in map_data['Systems']:
         full_system = map_data['Systems'][system]
@@ -82,30 +72,34 @@ if __name__ == "__main__":
             frontend_folders[frontend]['rom'] = {}
             frontend_folders[frontend]['media'] = {}
             frontend_folders[frontend]['base'] = os.path.join(
-                normalize_path(links_directory, leading_sep=True),  
-                normalize_path(frontend))
+                os.path.normpath(links_directory),  
+                os.path.normpath(frontend))
+            
+            base_path_test = os.path.normpath(frontend_folders[frontend]['base'])
+            roms_path_test = os.path.normpath(full_system['frontends'][frontend]['roms_path']).lstrip('/')
+            join_test = os.path.join(base_path_test, roms_path_test)
             frontend_folders[frontend]['rom']['links'] = os.path.join(
-                normalize_path(frontend_folders[frontend]['base'], leading_sep=True), 
-                normalize_path(full_system['frontends'][frontend]['roms_path']))
+                os.path.normpath(frontend_folders[frontend]['base']), 
+                os.path.normpath(full_system['frontends'][frontend]['roms_path']).lstrip('/'))
             frontend_folders[frontend]['media']['links'] = os.path.join(
-                normalize_path(frontend_folders[frontend]['base'], leading_sep=True), 
-                normalize_path(full_system['frontends'][frontend]['media_path']))
+                os.path.normpath(frontend_folders[frontend]['base']), 
+                os.path.normpath(full_system['frontends'][frontend]['media_path']).lstrip('/'))
             frontend_folders['roms_physical_path'] = os.path.join(
-                normalize_path(env_vars['ROM_VAULT_PATH'], leading_sep=True),
-                os.path.join(
-                    normalize_path(full_system['datsource'], trailing_sep=True),
-                    normalize_path(full_system['datfile'])))
+                os.path.normpath(env_vars['ROM_VAULT_PATH']),
+                os.path.normpath(full_system['roms_folder']))
             frontend_folders['media_physical_path'] = os.path.join(
-                normalize_path(env_vars['MEDIA_VAULT_PATH'], leading_sep=True),
-                os.path.join(
-                    normalize_path(env_vars['MEDIA_VAULT_PATH'], leading_sep=True),
-                    normalize_path(full_system['screenscraper_folder'])))
+                os.path.normpath(env_vars['MEDIA_VAULT_PATH']),
+                os.path.normpath(full_system['screenscraper_folder']))
             frontend_folders[frontend]['rom']['relative_path'] = os.path.relpath(
                 frontend_folders['roms_physical_path'],
-                frontend_folders[frontend]['rom']['links'])
+                os.path.join(
+                    frontend_folders[frontend]['base'],
+                    frontend_folders[frontend]['rom']['links']))
             frontend_folders[frontend]['media']['relative_path'] = os.path.relpath(
                 frontend_folders['media_physical_path'],
-                frontend_folders[frontend]['media']['links'])
+                os.path.join(
+                    frontend_folders[frontend]['base'],
+                    frontend_folders[frontend]['media']['links']))
         symlink_file = match_dat_filename(map_data['Systems'][system]['datfile'], all_symlink_files)
         media_files = walk_directory(frontend_folders['media_physical_path'])
         if symlink_file:
