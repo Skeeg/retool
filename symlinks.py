@@ -90,16 +90,6 @@ if __name__ == "__main__":
             frontend_folders['media_physical_path'] = os.path.join(
                 os.path.normpath(env_vars['MEDIA_VAULT_PATH']),
                 os.path.normpath(full_system['screenscraper_folder']))
-            frontend_folders[frontend]['rom']['relative_path'] = os.path.relpath(
-                frontend_folders['roms_physical_path'],
-                os.path.join(
-                    frontend_folders[frontend]['base'],
-                    frontend_folders[frontend]['rom']['links']))
-            frontend_folders[frontend]['media']['relative_path'] = os.path.relpath(
-                frontend_folders['media_physical_path'],
-                os.path.join(
-                    frontend_folders[frontend]['base'],
-                    frontend_folders[frontend]['media']['links']))
         symlink_file = match_dat_filename(map_data['Systems'][system]['datfile'], all_symlink_files)
         media_files = walk_directory(frontend_folders['media_physical_path'])
         if symlink_file:
@@ -115,9 +105,15 @@ if __name__ == "__main__":
                         rom_name['short'] = game_name
                         for frontend in full_system['frontends']:
                             rom_name_preference = map_data['frontends'][frontend]['rom_name_preference']
-                            actual_file_relative_path = os.path.join(frontend_folders[frontend]['rom']['relative_path'], rom_name['full'] + full_system['linked_extension'])
-                            frontend_linked_file_path = os.path.join(frontend_folders[frontend]['rom']['links'], rom_name[rom_name_preference] + full_system['linked_extension'])
-
+                            actual_file_path = os.path.join(
+                                frontend_folders['roms_physical_path'], 
+                                rom_name['full'] + full_system['linked_extension'])
+                            frontend_linked_file_path = os.path.join(
+                                frontend_folders[frontend]['rom']['links'], 
+                                rom_name[rom_name_preference] + full_system['linked_extension'])
+                            actual_file_relative_path = os.path.relpath(
+                                actual_file_path,
+                                frontend_linked_file_path)
                             create_symlink(src=actual_file_relative_path, dst=frontend_linked_file_path, overwrite_link=env_vars['OVERWRITE_LINK'])
                             
                             if env_vars['LINK_MEDIA_FILES'] == "true":
@@ -137,12 +133,15 @@ if __name__ == "__main__":
                                             mapped_media_filenames.append({'preffered_name': rom_name[rom_name_preference] + mapped_media_extension, 'actual_name': rom_name['full'] + mapped_media_extension})
                                         
                                         for item in mapped_media_filenames:
-                                            actual_media_file_relative_path = os.path.join(
-                                                frontend_folders[frontend]['media']['relative_path'], 
+                                            actual_media_file_path = os.path.join(
+                                                frontend_folders['media_physical_path'], 
                                                 os.path.join(actual_media_asset_path, item['actual_name']))
                                             frontend_linked_media_file_path = os.path.join(
                                                 frontend_folders[frontend]['media']['links'],
                                                 os.path.join(frontend_asset_path, item['preffered_name']))
+                                            actual_media_file_relative_path = os.path.relpath(
+                                                actual_media_file_path, 
+                                                frontend_linked_media_file_path)
                                             create_symlink(src=actual_media_file_relative_path, dst=frontend_linked_media_file_path, overwrite_link=env_vars['OVERWRITE_LINK'])
 
                                     except KeyError:
