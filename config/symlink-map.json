@@ -110,7 +110,7 @@
         }
       },
       "linked_extension": ".chd",
-      "screenscraper_folder": "preservation/downloaded_media/Neo Geo CD"
+      "screenscraper_folder": "preservation/downloaded_media/Neo-Geo CD"
     },
     "NEC - PC Engine CD & TurboGrafx CD" : {
       "datfile": "NEC - PC Engine CD & TurboGrafx CD",
@@ -125,7 +125,7 @@
         }
       },
       "linked_extension": ".chd",
-      "screenscraper_folder": "preservation/downloaded_media/PC Engine CD"
+      "screenscraper_folder": "preservation/downloaded_media/PC Engine CD-Rom"
     },
     "Sega - Mega CD & Sega CD" : {
       "datfile": "Sega - Mega CD & Sega CD",
