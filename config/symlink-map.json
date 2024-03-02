@@ -65,7 +65,7 @@
         }
       },
       "linked_extension": ".chd",
-      "screenscraper_folder": "preservation/downloaded_media/Playstation 2"
+      "screenscraper_folder": "preservation/downloaded_media/Playstation"
     },
     "Sony Playstation 2" : {
       "datfile": "Sony - PlayStation 2",
@@ -83,7 +83,7 @@
       "screenscraper_folder": "preservation/downloaded_media/Playstation 2"
     },
     "Sega Dreamcast" : {
-      "datfile": "Sega - Dreamcast ",
+      "datfile": "Sega - Dreamcast",
       "roms_folder": "preservation/unmanaged/dreamcast",
       "datsource": "redump",
       "in_folder": "False",
@@ -96,6 +96,21 @@
       },
       "linked_extension": ".chd",
       "screenscraper_folder": "preservation/downloaded_media/Dreamcast"
+    },
+    "SNK - Neo Geo CD" : {
+      "datfile": "SNK - Neo Geo CD",
+      "roms_folder": "preservation/unmanaged/neogeocd",
+      "datsource": "redump",
+      "in_folder": "False",
+      "ignore_extensions": [".bin"],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/neogeocd/",
+          "roms_path": "/roms/neogeocd/"
+        }
+      },
+      "linked_extension": ".chd",
+      "screenscraper_folder": "preservation/downloaded_media/Neo Geo CD"
     },
     "Wonderswan Color" : {
       "datfile": "Bandai - WonderSwan Color",
@@ -368,7 +383,7 @@
         }
       },
       "linked_extension": ".zip",
-      "screenscraper_folder": "preservation/downloaded_media/Jaguar"
+      "screenscraper_folder": "preservation/downloaded_media/Jaguar CD"
     },
     "Atari Lynx" : {
       "datfile": "Atari - Lynx (LYX)",
