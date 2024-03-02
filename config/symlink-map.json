@@ -112,6 +112,66 @@
       "linked_extension": ".chd",
       "screenscraper_folder": "preservation/downloaded_media/Neo Geo CD"
     },
+    "NEC - PC Engine CD & TurboGrafx CD" : {
+      "datfile": "NEC - PC Engine CD & TurboGrafx CD",
+      "roms_folder": "preservation/unmanaged/pcenginecd",
+      "datsource": "redump",
+      "in_folder": "False",
+      "ignore_extensions": [".bin"],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/pcenginecd/",
+          "roms_path": "/roms/pcenginecd/"
+        }
+      },
+      "linked_extension": ".chd",
+      "screenscraper_folder": "preservation/downloaded_media/PC Engine CD"
+    },
+    "Sega - Mega CD & Sega CD" : {
+      "datfile": "Sega - Mega CD & Sega CD",
+      "roms_folder": "preservation/unmanaged/segacd",
+      "datsource": "redump",
+      "in_folder": "False",
+      "ignore_extensions": [".bin"],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/segacd/",
+          "roms_path": "/roms/segacd/"
+        }
+      },
+      "linked_extension": ".chd",
+      "screenscraper_folder": "preservation/downloaded_media/Sega CD"
+    },
+    "Sega - Saturn" : {
+      "datfile": "Sega - Saturn",
+      "roms_folder": "preservation/unmanaged/saturn",
+      "datsource": "redump",
+      "in_folder": "False",
+      "ignore_extensions": [".bin"],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/saturn/",
+          "roms_path": "/roms/saturn/"
+        }
+      },
+      "linked_extension": ".chd",
+      "screenscraper_folder": "preservation/downloaded_media/Saturn"
+    },
+    "Microsoft - Xbox Classic" : {
+      "datfile": "Microsoft - Xbox Classic",
+      "roms_folder": "preservation/unmanaged/xbox",
+      "datsource": "redump",
+      "in_folder": "False",
+      "ignore_extensions": [".bin"],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/xbox/",
+          "roms_path": "/roms/xbox/"
+        }
+      },
+      "linked_extension": ".iso",
+      "screenscraper_folder": "preservation/downloaded_media/Xbox"
+    },
     "Wonderswan Color" : {
       "datfile": "Bandai - WonderSwan Color",
       "roms_folder": "preservation/managed/no-intro/Bandai - WonderSwan Color",
