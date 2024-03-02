@@ -33,9 +33,43 @@
     }
   },
   "Systems": {
+    "MS-DOS" : {
+      "datfile": "MS-DOS",
+      "roms_folder": "preservation/collections/exodosv6/eXo/eXoDOS",
+      "datsource": "none",
+      "in_folder": "True",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/dos/",
+          "roms_path": "/roms/dos/"
+        },
+        "OnionOS": {
+          "media_path": "/roms/DOS/",
+          "roms_path": "/roms/DOS/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "preservation/downloaded_media/PC Dos"
+    },
+    "Sony Playstation" : {
+      "datfile": "Sony - PlayStation 1",
+      "roms_folder": "preservation/unmanaged/psx",
+      "datsource": "redump",
+      "in_folder": "False",
+      "ignore_extensions": [".bin"],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/psx/",
+          "roms_path": "/roms/psx/"
+        }
+      },
+      "linked_extension": ".chd",
+      "screenscraper_folder": "preservation/downloaded_media/Playstation 2"
+    },
     "Sony Playstation 2" : {
       "datfile": "Sony - PlayStation 2",
-      "roms_folder": "preservation/unmanaged/PS2",
+      "roms_folder": "preservation/unmanaged/ps2",
       "datsource": "redump",
       "in_folder": "False",
       "ignore_extensions": [".bin"],
@@ -47,6 +81,21 @@
       },
       "linked_extension": ".chd",
       "screenscraper_folder": "preservation/downloaded_media/Playstation 2"
+    },
+    "Sega Dreamcast" : {
+      "datfile": "Sega - Dreamcast ",
+      "roms_folder": "preservation/unmanaged/dreamcast",
+      "datsource": "redump",
+      "in_folder": "False",
+      "ignore_extensions": [".bin"],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/dreamcast/",
+          "roms_path": "/roms/dreamcast/"
+        }
+      },
+      "linked_extension": ".chd",
+      "screenscraper_folder": "preservation/downloaded_media/Dreamcast"
     },
     "Wonderswan Color" : {
       "datfile": "Bandai - WonderSwan Color",
@@ -306,6 +355,21 @@
       "linked_extension": ".zip",
       "screenscraper_folder": "preservation/downloaded_media/Jaguar"
     },
+    "Atari Jaguar CD" : {
+      "datfile": "Atari - Jaguar CD Interactive Multimedia System",
+      "roms_folder": "preservation/managed/redump/Atari - Jaguar CD Interactive Multimedia System",
+      "datsource": "redump",
+      "in_folder": "False",
+      "ignore_extensions": [],
+      "frontends": {
+        "EmulationStation": {
+          "media_path": "/tools/downloaded_media/atarijaguarcd/",
+          "roms_path": "/roms/atarijaguarcd/"
+        }
+      },
+      "linked_extension": ".zip",
+      "screenscraper_folder": "preservation/downloaded_media/Jaguar"
+    },
     "Atari Lynx" : {
       "datfile": "Atari - Lynx (LYX)",
       "roms_folder": "preservation/managed/no-intro/Atari - Lynx (LYX)",
@@ -506,25 +570,6 @@
       },
       "linked_extension": ".zip",
       "screenscraper_folder": "preservation/downloaded_media/Master System"
-    },
-    "MS-DOS" : {
-      "datfile": "MS-DOS",
-      "roms_folder": "preservation/collections/exodosv6/eXo/eXoDOS",
-      "datsource": "no-intro",
-      "in_folder": "True",
-      "ignore_extensions": [],
-      "frontends": {
-        "EmulationStation": {
-          "media_path": "/tools/downloaded_media/dos/",
-          "roms_path": "/roms/dos/"
-        },
-        "OnionOS": {
-          "media_path": "/roms/DOS/",
-          "roms_path": "/roms/DOS/"
-        }
-      },
-      "linked_extension": ".zip",
-      "screenscraper_folder": "preservation/downloaded_media/PC Dos"
     },
     "Nintendo - Virtual Boy" : {
       "datfile": "Nintendo - Virtual Boy",
