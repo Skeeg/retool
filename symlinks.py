@@ -91,7 +91,6 @@ if __name__ == "__main__":
                 os.path.normpath(env_vars['MEDIA_VAULT_PATH']),
                 os.path.normpath(full_system['screenscraper_folder']))
         symlink_file = match_dat_filename(map_data['Systems'][system]['datfile'], all_symlink_files)
-        media_files = walk_directory(frontend_folders['media_physical_path'])
         if symlink_file:
             with open(os.path.join(dats_directory, symlink_file), 'r') as json_file:
                 game_data = json.load(json_file)
@@ -122,6 +121,7 @@ if __name__ == "__main__":
                                 overwrite_link=env_vars['OVERWRITE_LINK'])
                             
                             if env_vars['LINK_MEDIA_FILES'] == "true":
+                                media_files = walk_directory(frontend_folders['media_physical_path'])
                                 frontend_media_paths = map_data['frontends'][frontend]['media_paths']
                                 for media_path in frontend_media_paths:
                                     actual_media_asset_path = frontend_media_paths[media_path]
@@ -157,4 +157,60 @@ if __name__ == "__main__":
                                     except KeyError:
                                         print(f"Media folder not found: {frontend_folders['media_physical_path']}/{actual_media_asset_path}")
         else:
-            print(f"Symlink file not found: {symlink_file}")
+            if map_data['Systems'][system]['datsource'] == "none" and map_data['Systems'][system]['link_all'] == True :
+                rom_files = sorted(os.listdir(frontend_folders['roms_physical_path']))
+                for rom in rom_files:
+                    for frontend in full_system['frontends']:
+                        actual_file_path = os.path.join(
+                            frontend_folders['roms_physical_path'], 
+                            rom)
+                        frontend_linked_file_path = os.path.join(
+                            frontend_folders[frontend]['rom']['links'], 
+                            rom)
+                        actual_file_relative_path = os.path.relpath(
+                            os.path.dirname(actual_file_path),
+                            os.path.dirname(frontend_linked_file_path))
+                        create_symlink(
+                            src=os.path.join(
+                                actual_file_relative_path,
+                                os.path.basename(actual_file_path)),
+                            dst=frontend_linked_file_path, 
+                            overwrite_link=env_vars['OVERWRITE_LINK'])
+                        if env_vars['LINK_MEDIA_FILES'] == "true":
+                            media_files = walk_directory(frontend_folders['media_physical_path'])
+                            rom_name = os.path.splitext(rom)[0]
+                            frontend_media_paths = map_data['frontends'][frontend]['media_paths']
+                            for media_path in frontend_media_paths:
+                                actual_media_asset_path = frontend_media_paths[media_path]
+                                frontend_asset_path = media_path
+                                matched_media_files = []
+                                try:
+                                    for media_file in media_files[actual_media_asset_path]:
+                                        if rom_name in media_file:
+                                            matched_media_files.append(media_file)
+                                    
+                                    mapped_media_filenames = []
+                                    for matched_filenames in matched_media_files:
+                                        mapped_media_extension = os.path.splitext(matched_filenames)[1]
+                                        mapped_media_filenames.append({'preffered_name': rom_name + mapped_media_extension, 'actual_name': rom_name + mapped_media_extension})
+                                    
+                                    for item in mapped_media_filenames:
+                                        actual_media_file_path = os.path.join(
+                                            frontend_folders['media_physical_path'], 
+                                            os.path.join(actual_media_asset_path, item['actual_name']))
+                                        frontend_linked_media_file_path = os.path.join(
+                                            frontend_folders[frontend]['media']['links'],
+                                            os.path.join(frontend_asset_path, item['preffered_name']))
+                                        actual_media_file_relative_path = os.path.relpath(
+                                            os.path.dirname(actual_media_file_path), 
+                                            os.path.dirname(frontend_linked_media_file_path))
+                                        create_symlink(
+                                            src=os.path.join(
+                                                actual_media_file_relative_path,
+                                                os.path.basename(actual_media_file_path)),
+                                            dst=frontend_linked_media_file_path, 
+                                            overwrite_link=env_vars['OVERWRITE_LINK'])
+                                except KeyError:
+                                    print(f"Media folder not found: {frontend_folders['media_physical_path']}/{actual_media_asset_path}")
+            else:
+                print(f"Dat file not found: {map_data['Systems'][system]['datfile']} in {dats_directory}")

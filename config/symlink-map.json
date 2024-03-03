@@ -49,6 +49,7 @@
           "roms_path": "/roms/DOS/"
         }
       },
+      "link_all": true,
       "linked_extension": ".zip",
       "screenscraper_folder": "preservation/downloaded_media/PC Dos"
     },
