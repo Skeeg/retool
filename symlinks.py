@@ -91,6 +91,7 @@ if __name__ == "__main__":
                 os.path.normpath(env_vars['MEDIA_VAULT_PATH']),
                 os.path.normpath(full_system['screenscraper_folder']))
         symlink_file = match_dat_filename(map_data['Systems'][system]['datfile'], all_symlink_files)
+        if env_vars['LINK_MEDIA_FILES'] == "true": media_files = walk_directory(frontend_folders['media_physical_path']);
         if symlink_file:
             with open(os.path.join(dats_directory, symlink_file), 'r') as json_file:
                 game_data = json.load(json_file)
@@ -121,7 +122,6 @@ if __name__ == "__main__":
                                 overwrite_link=env_vars['OVERWRITE_LINK'])
                             
                             if env_vars['LINK_MEDIA_FILES'] == "true":
-                                media_files = walk_directory(frontend_folders['media_physical_path'])
                                 frontend_media_paths = map_data['frontends'][frontend]['media_paths']
                                 for media_path in frontend_media_paths:
                                     actual_media_asset_path = frontend_media_paths[media_path]
@@ -177,7 +177,6 @@ if __name__ == "__main__":
                             dst=frontend_linked_file_path, 
                             overwrite_link=env_vars['OVERWRITE_LINK'])
                         if env_vars['LINK_MEDIA_FILES'] == "true":
-                            media_files = walk_directory(frontend_folders['media_physical_path'])
                             rom_name = os.path.splitext(rom)[0]
                             frontend_media_paths = map_data['frontends'][frontend]['media_paths']
                             for media_path in frontend_media_paths:
